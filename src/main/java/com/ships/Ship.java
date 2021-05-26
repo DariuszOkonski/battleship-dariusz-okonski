@@ -1,4 +1,5 @@
 package com.ships;
 
-public class Ship {
+public abstract class Ship {
+
 }
