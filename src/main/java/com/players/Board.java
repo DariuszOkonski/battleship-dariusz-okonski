@@ -1,7 +1,10 @@
 package com.players;
 
 import com.ships.Carrier;
+import com.ships.Ship;
 import com.ships.Square;
+
+import java.util.List;
 
 public class Board {
     private static final int BOARD_SIZE = 10;
@@ -11,10 +14,10 @@ public class Board {
         this.battleField = createBattlefield();
     }
 
-    public void placeShipOnBoard(){
-        Carrier carrier = new Carrier(2,2);
-        for (int i = ; i < ; i++) {
-
+    public void placeShipOnBoard(Ship ship){
+        List<Square> tempShip = ship.getPositions();
+        for (int i = 0; i < tempShip.size() ; i++) {
+            this.battleField[tempShip.get(i).getRow()][tempShip.get(i).getCol()] = tempShip.get(i);
         }
     }
 

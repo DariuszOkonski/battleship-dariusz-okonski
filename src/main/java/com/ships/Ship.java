@@ -13,6 +13,14 @@ public abstract class Ship {
     public List<Square> getPositions() {
         return positions;
     }
+
+    public int getSize() {
+        return size;
+    }
+
+    public Ship getInstance() {
+        return this;
+    }
 }
 
 //    public abstract boolean isPositionAvailable(Square[][] ocean);
