@@ -8,8 +8,12 @@ public abstract class Ship {
     protected String name;
     protected int size;
     protected ShipType shipType;
+    public abstract void setShipOnPosition(Square[][] ocean);
+
+    public List<Square> getPositions() {
+        return positions;
+    }
+}
 
 //    public abstract boolean isPositionAvailable(Square[][] ocean);
 //    public abstract boolean isPositionEdgesAvailable(Square[][] ocean);
-    public abstract void setShipOnPosition(Square[][] ocean);
-}

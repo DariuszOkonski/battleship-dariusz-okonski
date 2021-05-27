@@ -11,6 +11,14 @@ public class Square {
         this.col = col;
     }
 
+    public int getRow() {
+        return row;
+    }
+
+    public int getCol() {
+        return col;
+    }
+
     public String getCharackter(){
         return squareStatus.status;
     }
