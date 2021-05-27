@@ -1,14 +1,14 @@
 package com.ships;
 
 public class Square {
-    private int x;
-    private int y;
+    private int row;
+    private int col;
     private boolean isHit = false;
     private SquareStatus squareStatus = SquareStatus.EMPTY;
 
-    public Square(int x, int y){
-        this.x = x;
-        this.y = y;
+    public Square(int row, int col){
+        this.row = row;
+        this.col = col;
     }
 
     public String getCharackter(){

@@ -1,12 +1,10 @@
-import com.ships.ShipType;
-import com.ships.Square;
-import com.ships.SquareStatus;
+import com.ships.*;
 
 public class Game {
     public static void main(String[] args) {
-        Square square = new Square(0,0);
-
-        System.out.println(square.getCharackter());
+        Carrier carrier = new Carrier();
+        carrier.setShip(2,2);
+        System.out.println();
     }
 
 }
