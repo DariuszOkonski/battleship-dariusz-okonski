@@ -14,4 +14,4 @@ public enum SquareStatus {
         this.status = status;
     }
 
-    }
+}

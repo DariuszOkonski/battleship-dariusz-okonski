@@ -8,10 +8,18 @@ public abstract class Ship {
     protected String name;
     protected int size;
     protected ShipType shipType;
-    public abstract void setShipOnPosition(Square[][] ocean);
+
+//    public abstract void setShipOnPosition(Square[][] ocean);
 
     public List<Square> getPositions() {
         return positions;
+    }
+
+    protected void setShip(int row, int col){
+        for (int i = col; i < (this.size + col) ; i++) {
+            Square square = new Square(row, i);
+            this.positions.add(square);
+        }
     }
 
     public int getSize() {
