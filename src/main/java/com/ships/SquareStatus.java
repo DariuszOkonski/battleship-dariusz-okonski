@@ -1,7 +1,7 @@
 package com.ships;
 
 public enum SquareStatus {
-    EMPTY (""),
+    EMPTY ("#"),
     SHIP ("S"),
     HIT ("H"),
     MISSED ("M"),

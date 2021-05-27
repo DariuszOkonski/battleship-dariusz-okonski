@@ -30,6 +30,21 @@ public class Board {
     }
 
 
+    public void printBoard(){
+        for (int i = 0; i < this.battleField.length; i++) {
+            for (int j = 0; j < this.battleField[i].length; j++) {
+                if (this.battleField[i][j] != null){
+                    System.out.printf("#");
+                }
+                else {
+                    System.out.printf("-");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+
 }
 
 
