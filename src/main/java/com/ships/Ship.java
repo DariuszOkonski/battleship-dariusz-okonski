@@ -30,6 +30,3 @@ public abstract class Ship {
         return this;
     }
 }
-
-//    public abstract boolean isPositionAvailable(Square[][] ocean);
-//    public abstract boolean isPositionEdgesAvailable(Square[][] ocean);
