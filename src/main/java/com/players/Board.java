@@ -1,22 +1,19 @@
 package com.players;
 
-import com.ships.Carrier;
-import com.ships.Ship;
-import com.ships.ShipType;
-import com.ships.Square;
+import com.ships.*;
 
 import java.util.List;
 
 public class Board {
     private static final int BOARD_SIZE = 10;
-    private Square[][] battleField;
+    private ISquare[][] battleField;
 
     public Board(){
         this.battleField = createBattlefield();
     }
 
     public void placeShipOnBoard(Ship ship){
-        List<Square> tempShip = ship.getPositions();
+        List<ISquare> tempShip = ship.getPositions();
         for (int i = 0; i < tempShip.size() ; i++) {
             this.battleField[tempShip.get(i).getRow()][tempShip.get(i).getCol()] = tempShip.get(i);
         }

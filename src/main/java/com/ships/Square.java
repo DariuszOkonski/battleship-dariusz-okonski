@@ -1,6 +1,6 @@
 package com.ships;
 
-public class Square {
+public class Square implements ISquare {
     private int row;
     private int col;
     private boolean isHit = false;
@@ -19,7 +19,7 @@ public class Square {
         return col;
     }
 
-    public String getCharackter(){
+    public String getCharacter(){
         return squareStatus.status;
     }
 }

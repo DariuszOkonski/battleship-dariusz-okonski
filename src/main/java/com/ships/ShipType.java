@@ -12,4 +12,6 @@ public enum ShipType {
     private ShipType(int size){
         this.size = size;
     }
+
+
 }
