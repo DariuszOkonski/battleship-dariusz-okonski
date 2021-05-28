@@ -3,15 +3,14 @@ import com.ships.*;
 
 public class Game {
     public static void main(String[] args) {
-        Board board = new Board();
-
-
-//        Carrier carrier2 = new Carrier(1, 4);
-//        board.placeShipOnBoard(carrier2);
+//        Board board = new Board();
 //
-        boolean responseInner = board.isPositionAvailable(1, 20, ShipType.CARRIER.size);
-        boolean responseOuter = board.isPositionEdgesAvailable(1, 1, ShipType.CARRIER.size);
-        System.out.println(responseOuter);
+//
+//        Carrier carrier2 = new Carrier(0, 2);
+//        board.placeShipOnBoard(carrier2);
+////
+//        boolean isPlacementOk = board.isPlacementOk(2,8, ShipType.CRUISER.size);
+//        System.out.println(isPlacementOk);
 
 //        Carrier carrier = new Carrier(1, 1);
 //        board.placeShipOnBoard(carrier);
@@ -29,7 +28,7 @@ public class Game {
 //        board.placeShipOnBoard(destroyer);
 
 
-        board.printBoard();
+//        board.printBoard();
     }
 
 }

@@ -22,7 +22,12 @@ public class Board {
         }
     }
 
-    public boolean isPositionAvailable(int row, int col, int shipSize) {
+    public boolean isPlacementOk(int row, int col, int shipSize) {
+        return isPositionAvailable(row, col, shipSize) && isPositionEdgesAvailable(row, col, shipSize);
+    }
+
+
+    private boolean isPositionAvailable(int row, int col, int shipSize) {
         try {
             for (int i = col; i < (shipSize + col); i++) {
                 if(this.battleField[row][i] != null)
@@ -34,13 +39,13 @@ public class Board {
         }
     }
 
-    public boolean isPositionEdgesAvailable(int row, int col, int shipSize) {
+    private boolean isPositionEdgesAvailable(int row, int col, int shipSize) {
         int tempRow = row - 1;
         int tempCol = col - 1;
         int tempShipSize = shipSize + 2;
-        int deepth = 3;
+        int row_depth = 3;
 
-        for (int i = tempRow; i < deepth; i++) {
+        for (int i = tempRow; i < row_depth; i++) {
             for (int j = tempCol; j < tempShipSize; j++) {
                 try {
                     if(this.battleField[i][j] != null)
