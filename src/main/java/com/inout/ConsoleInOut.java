@@ -1,5 +1,8 @@
 package com.inout;
 
+import com.players.Board;
+import com.players.Player;
+
 public class ConsoleInOut {
     public static final ConsoleInOut INSTANCE = new ConsoleInOut();
 
@@ -9,6 +12,10 @@ public class ConsoleInOut {
     private ConsoleInOut(){
         this.input = new Input();
         this.display = new Display();
+    }
+
+    public Board createPlayerBoard() {
+        return this.display.printShipPlacementProcess(this.input);
     }
 
     public static ConsoleInOut getInstance(){

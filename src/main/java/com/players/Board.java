@@ -5,7 +5,7 @@ import com.ships.*;
 import java.util.List;
 
 public class Board {
-    private static final int BOARD_SIZE = 10;
+    public static final int BOARD_SIZE = 10;
     private ISquare[][] battleField;
 
     public Board(){
