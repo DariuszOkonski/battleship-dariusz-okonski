@@ -63,6 +63,10 @@ public class Display {
         System.out.println("You typed coordinates out of range A-J, 0-9");
     }
 
+    public void displayPlayerName(String name) {
+        System.out.println("Player: " + name);
+    }
+
     public void printGamePlay(){
         System.out.println("GAME PLAY");
     }

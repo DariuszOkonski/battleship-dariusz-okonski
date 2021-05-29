@@ -25,12 +25,13 @@ public class ConsoleEngine {
     }
 
     public void displayBoard(Player player) {
-        System.out.println("Player: " + player.getName());
+        display.displayPlayerName(player.getName());
         this.getDisplay().displayBoard(player.getBoard().getBattleField());
     }
 
     public Player createPlayerBoardsAndShipsList(String name) {
-        System.out.println("Player: " + name);
+//        System.out.println("Player: " + name);
+        display.displayPlayerName(name);
         return this.display.shipsPlacementProcess(this.input, name);
     }
 
