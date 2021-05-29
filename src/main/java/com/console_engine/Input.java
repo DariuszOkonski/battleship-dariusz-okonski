@@ -1,33 +1,41 @@
 package com.console_engine;
 
-import com.players.Board;
-
 import java.util.*;
 
 public class Input {
-    private final String alphabeth = "abcdefghij";
     private final Dictionary<Character, Integer> rowsDictionary;
-    private final Dictionary<Character, Integer> columnsDictonary;
+    private final Dictionary<Character, Integer> columnsDictionary;
     private Scanner scanner;
+    private Display display;
 
-    public Input() {
-        this.rowsDictionary = createRowsDictionary();
-        this.columnsDictonary = createColsDictionary();
+    public Input(Dictionary<Character, Integer> rowsDictionary, Dictionary<Character, Integer> columnsDictionary, Display display) {
+        this.rowsDictionary = rowsDictionary;
+        this.columnsDictionary = columnsDictionary;
         this.scanner = new Scanner(System.in);
+        this.display = display;
     }
 
+    // method responsible for taking correct coordinates while ships are placing on board
     public int[] getCoordinates() {
         int[] coordinatesArray = new int[2];
+        coordinatesArray = this.inputValidation();
+
+        return coordinatesArray;
+    }
+
+    // method responsible for checking if new ship coordinates are correct
+    private int[] inputValidation(){
         boolean areCoordinatesOk;
+        int[] coordinatesArray = new int[2];
 
         do {
             areCoordinatesOk = true;
-            System.out.print("Podaj koordynaty (A-J)(0-9): ");
+            this.display.addCoordinatesInfo();
             String coordinates = this.scanner.nextLine();
             System.out.println(coordinates);
 
             if(coordinates.length() != 2) {
-                System.out.println("Coordinates Length must be equal: 2");
+                this.display.wrongCoordinatesLengthInfo();
                 areCoordinatesOk = false;
                 continue;
             }
@@ -35,50 +43,17 @@ public class Input {
             char row = Character.toUpperCase(coordinates.charAt(0));
             char col = Character.toUpperCase(coordinates.charAt(1));
 
-            if(this.rowsDictionary.get(row) == null || this.columnsDictonary.get(col) == null) {
-                System.out.println("You typed coordinates out of range A-J, 0-9");
+            if(this.rowsDictionary.get(row) == null || this.columnsDictionary.get(col) == null) {
+                this.display.outOfRangeCoordinatesInfo();
                 areCoordinatesOk = false;
                 continue;
             }
 
-
             coordinatesArray[0] = this.rowsDictionary.get(row);
-            coordinatesArray[1] = this.columnsDictonary.get(col);
-
-
-
+            coordinatesArray[1] = this.columnsDictionary.get(col);
 
         } while (!areCoordinatesOk);
 
-
-
         return coordinatesArray;
-    }
-
-//    public String getData(){
-//        return "dwad";
-//    }
-
-//    public void InputValidation(){
-//        System.out.println("Input Val");
-//    }
-
-    private Dictionary<Character, Integer> createColsDictionary() {
-        Dictionary<Character, Integer> tempDict = new Hashtable<>();
-        for (int i = 0; i < Board.BOARD_SIZE; i++) {
-            String tempStr = Integer.toString(i);
-            Character key = tempStr.charAt(0);
-            tempDict.put(key, i);
-        }
-        return tempDict;
-    }
-
-    private Dictionary<Character, Integer> createRowsDictionary() {
-        Dictionary<Character, Integer> tempDict = new Hashtable<>();
-        for (int i = 0; i < Board.BOARD_SIZE; i++) {
-            Character key =  Character.toUpperCase(this.alphabeth.charAt(i));
-            tempDict.put(key, i);
-        }
-        return tempDict;
     }
 }
