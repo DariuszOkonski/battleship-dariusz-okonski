@@ -1,67 +1,64 @@
 package com.console_engine;
 
-import com.players.Board;
+import com.players.BoardFactory;
+import com.players.Player;
 import com.ships.*;
 
+import java.util.Dictionary;
+
 public class Display {
+    private final Dictionary<Character, Integer> rowsDictionary;
+    private final Dictionary<Character, Integer> columnsDictonary;
+
+    public Display(Dictionary<Character, Integer> rowsDictionary, Dictionary<Character, Integer> columnsDictonary) {
+        this.rowsDictionary = rowsDictionary;
+        this.columnsDictonary = columnsDictonary;
+    }
+
     public void printGameMenu(){
         System.out.println("GAME MENU");
     }
 
 
-    public Board printShipPlacementProcess(Input input){
-        Board tempBoard = new Board();
-
-        int row = 0;
-        int col = 0;
-        for(ShipType ship: ShipType.values()) {
-
-            boolean isShipPositionOk = false;
-            do {
-                System.out.println("Current ship to place on board: " + ship);
-
-                // TODO - working on getting correct coordinate, should work already
-                int [] coordinates = input.getCoordinates();
-                row = coordinates[0];
-                col = coordinates[1];
-
-
-                if(!tempBoard.isPlacementOk(row, col, ship.size)) {
-                    isShipPositionOk = false;
-                    System.out.println("Ship can not be placed in this position");
-                } else {
-                    isShipPositionOk = true;
-                }
-
-
-            }while (!isShipPositionOk);
-
-
-
-            switch (ship){
-                case CARRIER:
-                    tempBoard.placeShipOnBoard(new Carrier(row, col));
-                    break;
-                case BATTLESHIP:
-                    tempBoard.placeShipOnBoard(new BattleShip(row, col));
-                    break;
-                case CRUISER:
-                    tempBoard.placeShipOnBoard(new Cruiser(row, col));
-                    break;
-                case SUBMARINE:
-                    tempBoard.placeShipOnBoard(new Submarine(row, col));
-                    break;
-                case DESTROYER:
-                    tempBoard.placeShipOnBoard(new Destroyer(row, col));
-                    break;
-            }
-
-
-        }
-
-        return tempBoard;
+    // method to create new Player with Boards and Ship List, using class BoardFactory
+    public Player shipsPlacementProcess(Input input, String name){
+        return new BoardFactory().manualPlacement(input, this, name);
     }
 
+    public void displayBoard(ISquare[][] board) {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if (board[i][j] != null){
+                    System.out.printf(" # ");
+                }
+                else {
+                    System.out.printf(" ~ ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    // ========================================== INFORMATION METHODS
+    public void currentShipToPlaceInfo(ShipType ship) {
+        System.out.println("Current ship to place on board: " + ship);
+    }
+
+    public void noShipInCurrentPositionInfo() {
+        System.out.println("Ship can not be placed in this position");
+    }
+
+    public void addCoordinatesInfo() {
+        System.out.print("Type coordinates (A-J)(0-9): ");
+    }
+
+    public void wrongCoordinatesLengthInfo() {
+        System.out.println("Coordinates Length must be equal: 2");
+    }
+
+    public void outOfRangeCoordinatesInfo() {
+        System.out.println("You typed coordinates out of range A-J, 0-9");
+    }
 
     public void printGamePlay(){
         System.out.println("GAME PLAY");
@@ -72,7 +69,4 @@ public class Display {
         System.out.println("PRINT GAME OVER");
     }
 
-    private void currentShipPlacement(ShipType shipType) {
-        System.out.println("Current ship to place on board: " + shipType);
-    }
 }
