@@ -30,6 +30,7 @@ public class ConsoleEngine {
     }
 
     public Player createPlayerBoardsAndShipsList(String name) {
+        System.out.println("Player: " + name);
         return this.display.shipsPlacementProcess(this.input, name);
     }
 

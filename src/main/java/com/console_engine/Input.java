@@ -32,7 +32,7 @@ public class Input {
             areCoordinatesOk = true;
             this.display.addCoordinatesInfo();
             String coordinates = this.scanner.nextLine();
-            System.out.println(coordinates);
+//            System.out.println(coordinates);
 
             if(coordinates.length() != 2) {
                 this.display.wrongCoordinatesLengthInfo();

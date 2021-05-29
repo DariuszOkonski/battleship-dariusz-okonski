@@ -26,6 +26,7 @@ public class Display {
     }
 
     public void displayBoard(ISquare[][] board) {
+        System.out.println();
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 if (board[i][j] != null){
@@ -37,10 +38,12 @@ public class Display {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     // ========================================== INFORMATION METHODS
     public void currentShipToPlaceInfo(ShipType ship) {
+        System.out.println("-------------------------------------------");
         System.out.println("Current ship to place on board: " + ship);
     }
 
