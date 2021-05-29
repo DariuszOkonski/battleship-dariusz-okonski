@@ -23,6 +23,9 @@ public class Board {
         return isPositionAvailable(row, col, shipSize) && isPositionEdgesAvailable(row, col, shipSize);
     }
 
+    public ISquare[][] getBattleField() {
+        return battleField;
+    }
 
     private boolean isPositionAvailable(int row, int col, int shipSize) {
         try {
@@ -40,7 +43,7 @@ public class Board {
         int tempRow = row - 1;
         int tempCol = col - 1;
         int tempShipSize = shipSize + 2;
-        int row_depth = 3;
+        int row_depth = 3 + tempRow;
 
         for (int i = tempRow; i < row_depth; i++) {
             for (int j = tempCol; j < tempShipSize; j++) {
@@ -63,23 +66,6 @@ public class Board {
         }
         return battleField;
     }
-
-//    Temporarily method to remove later
-    public void printBoard(){
-        for (int i = 0; i < this.battleField.length; i++) {
-            for (int j = 0; j < this.battleField[i].length; j++) {
-                if (this.battleField[i][j] != null){
-                    System.out.printf(" # ");
-                }
-                else {
-                    System.out.printf(" - ");
-                }
-            }
-            System.out.println();
-        }
-    }
-
-
 }
 
 
