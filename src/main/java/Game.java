@@ -1,7 +1,4 @@
-import com.inout.ConsoleInOut;
-import com.inout.Input;
-import com.players.Board;
-import com.ships.*;
+import com.console_engine.Input;
 
 import java.util.Arrays;
 

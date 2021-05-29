@@ -1,15 +1,14 @@
-package com.inout;
+package com.console_engine;
 
 import com.players.Board;
-import com.players.Player;
 
-public class ConsoleInOut {
-    public static final ConsoleInOut INSTANCE = new ConsoleInOut();
+public class ConsoleEngine {
+    public static final ConsoleEngine INSTANCE = new ConsoleEngine();
 
     private Input input;
     private Display display;
 
-    private ConsoleInOut(){
+    private ConsoleEngine(){
         this.input = new Input();
         this.display = new Display();
     }
@@ -18,7 +17,7 @@ public class ConsoleInOut {
         return this.display.printShipPlacementProcess(this.input);
     }
 
-    public static ConsoleInOut getInstance(){
+    public static ConsoleEngine getInstance(){
         return INSTANCE;
     }
 

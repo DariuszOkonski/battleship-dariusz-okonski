@@ -1,4 +1,4 @@
-package com.inout;
+package com.console_engine;
 
 import com.players.Board;
 
