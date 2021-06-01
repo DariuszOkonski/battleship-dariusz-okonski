@@ -3,7 +3,7 @@ package com.ships;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Ship {
+public abstract class Ship implements IShip {
     protected final List<ISquare> positions = new ArrayList<>();
     protected String name;
     protected int size;

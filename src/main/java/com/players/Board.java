@@ -12,7 +12,7 @@ public class Board {
         this.battleField = createBattlefield();
     }
 
-    public void placeShipOnBoard(Ship ship){
+    public void placeShipOnBoard(IShip ship){
         List<ISquare> tempShip = ship.getPositions();
         for (int i = 0; i < tempShip.size() ; i++) {
             this.battleField[tempShip.get(i).getRow()][tempShip.get(i).getCol()] = tempShip.get(i);

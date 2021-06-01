@@ -14,7 +14,7 @@ public class BoardFactory {
 
     public Player manualPlacement(Input input, Display display, String name) {
         Board tempBoard = new Board();
-        List<Ship> tempShips = new ArrayList<>();
+        List<IShip> tempShips = new ArrayList<>();
 
 
         for(ShipType ship: ShipType.values()) {
@@ -53,7 +53,7 @@ public class BoardFactory {
         return coordinates;
     }
 
-    private void addShipToBoardAndList(ShipType ship, Board tempBoard, List<Ship> tempShips, int row, int col) {
+    private void addShipToBoardAndList(ShipType ship, Board tempBoard, List<IShip> tempShips, int row, int col) {
         switch (ship){
             case CARRIER:
                 Carrier carrier = new Carrier(row, col);
