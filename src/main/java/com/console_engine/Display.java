@@ -1,7 +1,7 @@
 package com.console_engine;
 
 import com.players.BoardFactory;
-import com.players.Player;
+import com.players.IPlayer;
 import com.ships.*;
 
 import java.util.Dictionary;
@@ -21,7 +21,7 @@ public class Display {
 
 
     // method to create new Player with Boards and Ship List, using class BoardFactory
-    public Player shipsPlacementProcess(Input input, String name){
+    public IPlayer shipsPlacementProcess(Input input, String name){
         return new BoardFactory().manualPlacement(input, this, name);
     }
 

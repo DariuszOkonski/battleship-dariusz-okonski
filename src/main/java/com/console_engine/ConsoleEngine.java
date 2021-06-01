@@ -1,7 +1,7 @@
 package com.console_engine;
 
 import com.players.Board;
-import com.players.Player;
+import com.players.IPlayer;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
@@ -24,12 +24,12 @@ public class ConsoleEngine {
         this.input = new Input(this.rowsDictionary, this.columnsDictonary, this.display);
     }
 
-    public void displayBoard(Player player) {
+    public void displayBoard(IPlayer player) {
         display.displayPlayerName(player.getName());
         this.getDisplay().displayBoard(player.getBoard().getBattleField());
     }
 
-    public Player createPlayerBoardsAndShipsList(String name) {
+    public IPlayer createPlayerBoardsAndShipsList(String name) {
 //        System.out.println("Player: " + name);
         display.displayPlayerName(name);
         return this.display.shipsPlacementProcess(this.input, name);
