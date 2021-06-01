@@ -26,8 +26,17 @@ public class Display {
     }
 
     public void displayBoard(ISquare[][] board) {
+        String tempAlphabeth = "ABCDEFGHIJ";
         System.out.println();
+
+        System.out.printf("  ");
         for (int i = 0; i < board.length; i++) {
+            System.out.printf(" " + i + " ");
+        }
+        System.out.println();
+
+        for (int i = 0; i < board.length; i++) {
+            System.out.printf(tempAlphabeth.charAt(i) + " ");
             for (int j = 0; j < board[i].length; j++) {
                 if (board[i][j] != null){
                     System.out.printf(" # ");
