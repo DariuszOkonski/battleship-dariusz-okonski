@@ -5,6 +5,7 @@ import com.ships.IShip;
 import java.util.List;
 
 public class Player implements IPlayer {
+    // Carrier, BattleShip, Cruiser, Destroyer, Submarine
     private List<IShip> ships;
     private Board board;
     private String name;

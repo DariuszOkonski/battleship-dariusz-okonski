@@ -6,19 +6,15 @@ import com.ships.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class BoardFactory {
-    public Player randomplacement() {
-        return null;
-    }
-
-    public Player manualPlacement(Input input, Display display, String name) {
+    public Player randomPlacement(Input input, Display display, String name) {
         Board tempBoard = new Board();
         List<IShip> tempShips = new ArrayList<>();
 
-
         for(ShipType ship: ShipType.values()) {
-            int [] coordinates = checkCoordinates(input, display, tempBoard, ship);
+            int [] coordinates = checkCoordinatesRandom(tempBoard, ship);
 
             int row = coordinates[0];
             int col = coordinates[1];
@@ -30,7 +26,46 @@ public class BoardFactory {
         return new Player(tempShips, tempBoard, name);
     }
 
-    private int[] checkCoordinates(Input input, Display display, Board tempBoard, ShipType ship) {
+    public Player manualPlacement(Input input, Display display, String name) {
+        Board tempBoard = new Board();
+        List<IShip> tempShips = new ArrayList<>();
+
+
+        for(ShipType ship: ShipType.values()) {
+            int [] coordinates = checkCoordinatesManual(input, display, tempBoard, ship);
+
+            int row = coordinates[0];
+            int col = coordinates[1];
+
+            this.addShipToBoardAndList(ship, tempBoard, tempShips, row, col);
+            display.displayBoard(tempBoard.getBattleField());
+        }
+
+        return new Player(tempShips, tempBoard, name);
+    }
+
+    private int[] checkCoordinatesRandom(Board tempBoard, ShipType ship) {
+        boolean isShipPositionOk;
+        int [] coordinates = new int[2];
+        Random random = new Random();
+
+        do {
+            isShipPositionOk = true;
+            int row = random.nextInt(Board.BOARD_SIZE);
+            int col = random.nextInt(Board.BOARD_SIZE);
+
+            if(!tempBoard.isPlacementOk(row, col, ship.size)) {
+                isShipPositionOk = false;
+                continue;
+            }
+            coordinates[0] = row;
+            coordinates[1] = col;
+        } while (!isShipPositionOk);
+
+        return coordinates;
+    }
+
+    private int[] checkCoordinatesManual(Input input, Display display, Board tempBoard, ShipType ship) {
         boolean isShipPositionOk;
         int [] coordinates;
         int row = 0;

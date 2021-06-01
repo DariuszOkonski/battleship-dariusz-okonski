@@ -38,29 +38,30 @@ public class Board {
             return false;
         }
     }
-
     private boolean isPositionEdgesAvailable(int row, int col, int shipSize) {
-        int tempRow = row - 1;
-        int tempCol = col - 1;
-        int tempShipSize = shipSize + 2;
-        int row_depth = 3 + tempRow;
+        int firsRow = row - 1;
+        int lastRow = firsRow + 2;
 
-        for (int i = tempRow; i < row_depth; i++) {
-            for (int j = tempCol; j < tempShipSize; j++) {
+        int firstCol = col - 1;
+//        int lastCol = shipSize + 2;
+        int lastCol = firstCol + shipSize + 1;
+
+
+        for (int r = firsRow; r <= lastRow; r++) {
+            for (int c = firstCol; c <= lastCol; c++) {
                 try {
-                    if(this.battleField[i][j] != null)
+                    if(this.battleField[r][c] != null)
                         return false;
                 } catch (ArrayIndexOutOfBoundsException err) {
                     continue;
                 }
             }
         }
-
         return true;
     }
 
-    private Square[][] createBattlefield(){
-        Square[][] battleField = new Square[BOARD_SIZE][];
+    private ISquare[][] createBattlefield(){
+        ISquare[][] battleField = new Square[BOARD_SIZE][];
         for (int i = 0; i < BOARD_SIZE; i++) {
             battleField[i] = new Square[BOARD_SIZE];
         }

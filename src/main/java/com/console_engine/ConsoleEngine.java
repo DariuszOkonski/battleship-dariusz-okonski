@@ -29,10 +29,14 @@ public class ConsoleEngine {
         this.getDisplay().displayBoard(player.getBoard().getBattleField());
     }
 
-    public IPlayer createPlayerBoardsAndShipsList(String name) {
+    public IPlayer createPlayerBoardsAndShipsList(String name, boolean randomly) {
 //        System.out.println("Player: " + name);
-        display.displayPlayerName(name);
-        return this.display.shipsPlacementProcess(this.input, name);
+        if(!randomly) {
+            display.displayPlayerName(name);
+            return this.display.shipsPlacementProcessManual(this.input, name);
+        } else {
+            return this.display.shipsPlacementProcessRandom(this.input, name);
+        }
     }
 
     public static ConsoleEngine getInstance(){

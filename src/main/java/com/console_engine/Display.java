@@ -21,8 +21,14 @@ public class Display {
 
 
     // method to create new Player with Boards and Ship List, using class BoardFactory
-    public IPlayer shipsPlacementProcess(Input input, String name){
-        return new BoardFactory().manualPlacement(input, this, name);
+    public IPlayer shipsPlacementProcessManual(Input input, String name){
+        var tempBoardFactory = new BoardFactory();
+        return tempBoardFactory.manualPlacement(input, this, name);
+    }
+
+    public IPlayer shipsPlacementProcessRandom(Input input, String name) {
+        var tempBoardFactory = new BoardFactory();
+        return tempBoardFactory.randomPlacement(input, this, name);
     }
 
     public void displayBoard(ISquare[][] board) {
@@ -39,7 +45,7 @@ public class Display {
             System.out.printf(tempAlphabeth.charAt(i) + " ");
             for (int j = 0; j < board[i].length; j++) {
                 if (board[i][j] != null){
-                    System.out.printf(" # ");
+                    System.out.printf(" " + board[i][j].getCharacter() + " ");
                 }
                 else {
                     System.out.printf(" ~ ");
@@ -79,7 +85,6 @@ public class Display {
     public void printGamePlay(){
         System.out.println("GAME PLAY");
     }
-
 
     public void printGameOver(){
         System.out.println("PRINT GAME OVER");
