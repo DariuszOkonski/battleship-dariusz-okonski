@@ -9,14 +9,31 @@ import java.util.Dictionary;
 public class Display {
     private final Dictionary<Character, Integer> rowsDictionary;
     private final Dictionary<Character, Integer> columnsDictonary;
+    private Input input;
 
     public Display(Dictionary<Character, Integer> rowsDictionary, Dictionary<Character, Integer> columnsDictonary) {
         this.rowsDictionary = rowsDictionary;
         this.columnsDictonary = columnsDictonary;
     }
 
+    public void setInput(Input input) {
+        this.input = input;
+    }
+
     public void printGameMenu(){
-        System.out.println("GAME MENU");
+        String response;
+        do {
+            System.out.println("BATTLESHIPS");
+            System.out.println("===========");
+            System.out.println("Menu:");
+            System.out.println("1 - Player vs Player");
+            System.out.println("2 - Player vs CPU");
+            System.out.println("Q - Quit");
+            System.out.printf("Choose: ");
+
+            response = this.input.getOptionFromMenu();
+
+        } while (!response.equals("Q"));
     }
 
 

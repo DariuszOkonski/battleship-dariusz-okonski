@@ -22,6 +22,11 @@ public class ConsoleEngine {
 
         this.display = new Display(this.rowsDictionary, this.columnsDictonary);
         this.input = new Input(this.rowsDictionary, this.columnsDictonary, this.display);
+        this.setInputInDisplay();
+    }
+
+    private void setInputInDisplay() {
+           this.display.setInput(this.input);
     }
 
     public void displayBoard(IPlayer player) {
@@ -52,7 +57,7 @@ public class ConsoleEngine {
     }
 
     public void gameMenu(){
-        System.out.println("GameMenu");
+        this.display.printGameMenu();
     }
 
     private Dictionary<Character, Integer> createColsDictionary() {

@@ -23,6 +23,10 @@ public class Input {
         return coordinatesArray;
     }
 
+    public String getOptionFromMenu() {
+        return this.scanner.nextLine().toUpperCase();
+    }
+
     // method responsible for checking if new ship coordinates are correct
     private int[] inputValidation(){
         boolean areCoordinatesOk;
