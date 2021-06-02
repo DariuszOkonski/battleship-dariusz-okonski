@@ -22,8 +22,8 @@ public class BoardFactory {
             this.addShipToBoardAndList(ship, tempBoard, tempShips, row, col);
         }
 
-        display.displayPlayerName(name);
-        display.displayBoard(tempBoard.getBattleField());
+//        display.displayPlayerName(name);
+//        display.displayBoard(tempBoard.getBattleField());
 
         return new Player(tempShips, tempBoard, name);
     }
