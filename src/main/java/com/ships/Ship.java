@@ -29,6 +29,4 @@ public abstract class Ship implements IShip {
     public Ship getInstance() {
         return this;
     }
-
-
 }

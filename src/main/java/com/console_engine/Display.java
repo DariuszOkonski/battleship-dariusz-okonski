@@ -79,6 +79,10 @@ public class Display {
         System.out.println("Current ship to place on board: " + ship);
     }
 
+    public void displayWinner(String name) {
+        System.out.println(name + " has WON!!!");
+    }
+
     public void noShipInCurrentPositionInfo() {
         System.out.println("Ship can not be placed in this position");
     }

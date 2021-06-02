@@ -1,6 +1,7 @@
 package com.players;
 
 import com.ships.IShip;
+import com.ships.ISquare;
 
 import java.util.List;
 
@@ -26,5 +27,17 @@ public class Player implements IPlayer {
 
     public List<IShip> getShips() {
         return ships;
+    }
+
+    public boolean isAnyShipsLeft() {
+        return this.ships.size() > 0;
+    }
+
+    public ISquare getSingleSquareObjectFromPlayer(int row, int col) {
+        return this.board.getSingleSquareObjectFromBoard(row, col);
+    }
+
+    public void setMissedShoot(int row, int col) {
+        this.board.setMissedShootOnBoard(row, col);
     }
 }

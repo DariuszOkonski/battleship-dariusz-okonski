@@ -11,6 +11,12 @@ public class Square implements ISquare {
         this.col = col;
     }
 
+    public Square(int row, int col, SquareStatus squareStatus){
+        this.row = row;
+        this.col = col;
+        this.squareStatus = squareStatus;
+    }
+
     public int getRow() {
         return row;
     }
@@ -21,5 +27,9 @@ public class Square implements ISquare {
 
     public String getCharacter(){
         return squareStatus.status;
+    }
+
+    public ISquare getInstance() {
+        return this;
     }
 }
