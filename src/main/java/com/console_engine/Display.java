@@ -8,32 +8,32 @@ import java.util.Dictionary;
 
 public class Display {
     private final Dictionary<Character, Integer> rowsDictionary;
-    private final Dictionary<Character, Integer> columnsDictonary;
+    private final Dictionary<Character, Integer> columnsDictionary;
     private Input input;
 
-    public Display(Dictionary<Character, Integer> rowsDictionary, Dictionary<Character, Integer> columnsDictonary) {
+    public Display(Dictionary<Character, Integer> rowsDictionary, Dictionary<Character, Integer> columnsDictionary) {
         this.rowsDictionary = rowsDictionary;
-        this.columnsDictonary = columnsDictonary;
+        this.columnsDictionary = columnsDictionary;
     }
 
     public void setInput(Input input) {
         this.input = input;
     }
 
-    public void printGameMenu(){
+    public String printGameMenu(){
         String response;
-        do {
-            System.out.println("BATTLESHIPS");
-            System.out.println("===========");
-            System.out.println("Menu:");
-            System.out.println("1 - Player vs Player");
-            System.out.println("2 - Player vs CPU");
-            System.out.println("Q - Quit");
-            System.out.printf("Choose: ");
 
-            response = this.input.getOptionFromMenu();
+        System.out.println("BATTLESHIPS");
+        System.out.println("===========");
+        System.out.println("Menu:");
+        System.out.println("1 - Player vs Player (manually)");
+        System.out.println("2 - Player vs Player (randomly)");
+        System.out.println("Q - Quit");
+        System.out.printf("Choose: ");
 
-        } while (!response.equals("Q"));
+        response = this.input.getOptionFromMenu();
+
+        return response;
     }
 
 

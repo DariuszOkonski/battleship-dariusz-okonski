@@ -56,8 +56,8 @@ public class ConsoleEngine {
         return display;
     }
 
-    public void gameMenu(){
-        this.display.printGameMenu();
+    public String gameMenu(){
+        return this.display.printGameMenu();
     }
 
     private Dictionary<Character, Integer> createColsDictionary() {
