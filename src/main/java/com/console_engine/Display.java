@@ -29,7 +29,7 @@ public class Display {
         System.out.println("1 - Player vs Player (manually)");
         System.out.println("2 - Player vs Player (randomly)");
         System.out.println("Q - Quit");
-        System.out.printf("Choose: ");
+        System.out.printf("Choice: ");
 
         response = this.input.getOptionFromMenu();
 

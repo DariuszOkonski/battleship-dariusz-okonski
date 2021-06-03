@@ -15,6 +15,10 @@ public abstract class Ship implements IShip {
         return positions;
     }
 
+    public String getName() {
+        return name;
+    }
+
     protected void setShip(int row, int col){
         for (int i = col; i < (this.size + col) ; i++) {
             ISquare square = new Square(row, i);

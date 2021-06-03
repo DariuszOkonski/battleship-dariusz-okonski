@@ -32,4 +32,17 @@ public class Square implements ISquare {
     public ISquare getInstance() {
         return this;
     }
+
+    public boolean isHit() {
+        return isHit;
+    }
+
+    public void setHit() {
+        this.isHit = true;
+        this.squareStatus = SquareStatus.HIT;
+    }
+
+    public void setDestroyed() {
+        this.squareStatus = SquareStatus.WRECKED;
+    }
 }

@@ -5,4 +5,7 @@ public interface ISquare {
     int getCol();
     String getCharacter();
     ISquare getInstance();
+    void setHit();
+    boolean isHit();
+    void setDestroyed();
 }

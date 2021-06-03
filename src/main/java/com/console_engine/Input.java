@@ -16,6 +16,10 @@ public class Input {
     }
 
     // method responsible for taking correct coordinates while ships are placing on board
+    public void pressAnyButton() {
+        this.scanner.nextLine();
+    }
+
     public int[] getCoordinates() {
         int[] coordinatesArray = new int[2];
         coordinatesArray = this.inputValidation();

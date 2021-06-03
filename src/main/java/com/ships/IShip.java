@@ -10,4 +10,5 @@ public interface IShip {
 
     int getSize();
     Ship getInstance();
+    String getName();
 }

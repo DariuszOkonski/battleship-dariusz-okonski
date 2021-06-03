@@ -21,9 +21,13 @@ public class Game {
         do {
 
             choice = ConsoleEngine.INSTANCE.gameMenu();
-            System.out.println("Choice: " + choice);
+//            System.out.println("Choice: " + choice);
 
             this.differentGameModes(choice);
+
+            System.out.println();
+            System.out.println(" ===> START GAME <=== ");
+            System.out.println();
 
             this.runSingleGame();
 
@@ -75,9 +79,11 @@ public class Game {
 
     private void singleTurn(IPlayer attacker, IPlayer defender) {
         // attacker turn
-        System.out.println("Attacking: " + attacker.getName());
+        // TODO - replace with function
+        System.out.println("Attacker: " + attacker.getName());
 
         // diplay defender board
+        // TODO - replace with function
         System.out.println("Defender:");
         ConsoleEngine.INSTANCE.displayBoard(defender);
 
@@ -90,16 +96,31 @@ public class Game {
         ISquare currentObjectOnDefenderBoard = defender.getSingleSquareObjectFromPlayer(row, col);
 
         // if null or missed then create in this position new squere with status missed
-
         if(currentObjectOnDefenderBoard == null) {
             defender.setMissedShoot(row, col);
+        }else if(currentObjectOnDefenderBoard.getCharacter().equals(SquareStatus.EMPTY.status)){
+
+            // if hit ship than mark that on board
+            defender.setHitShip(row, col);
+
+            // iterate over Player.ships list to check if any ship has been destroyed completely
+            defender.checkIfShipHasBeenDestroyed();
         }
 
 
-        // if hit ship than mark that on board
         // mark that on shipsList as well
         //  check if ship is destroyed, if destroyed than remove from shipsList
         // if double hit same spot than loose shoot
+
+        // TODO - replace with function
+        System.out.println("After giving a shoot");
+        ConsoleEngine.INSTANCE.displayBoard(defender);
+
+        System.out.println();
+        System.out.printf(" ===> PRESS ANY BUTTON <===");
+        System.out.println();
+
+        ConsoleEngine.INSTANCE.getInput().pressAnyButton();
 
     }
 

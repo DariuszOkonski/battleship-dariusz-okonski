@@ -13,7 +13,7 @@ public class Board {
     }
 
     public void setMissedShootOnBoard(int row, int col) {
-        this.battleField[row][col] = new Square(row, col);
+        this.battleField[row][col] = new Square(row, col, SquareStatus.MISSED);
     }
 
     public void placeShipOnBoard(IShip ship){
@@ -28,7 +28,7 @@ public class Board {
     }
 
     public ISquare getSingleSquareObjectFromBoard(int row, int col) {
-        return this.battleField[row][col] = new Square(row, col, SquareStatus.MISSED);
+        return this.battleField[row][col];
     }
 
     public ISquare[][] getBattleField() {
@@ -74,6 +74,11 @@ public class Board {
             battleField[i] = new Square[BOARD_SIZE];
         }
         return battleField;
+    }
+
+    public void setHitShipOnBoard(int row, int col) {
+        ISquare hitShip = this.battleField[row][col];
+        hitShip.setHit();
     }
 }
 

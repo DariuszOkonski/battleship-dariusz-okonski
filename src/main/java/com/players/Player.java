@@ -3,6 +3,7 @@ package com.players;
 import com.ships.IShip;
 import com.ships.ISquare;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Player implements IPlayer {
@@ -39,5 +40,49 @@ public class Player implements IPlayer {
 
     public void setMissedShoot(int row, int col) {
         this.board.setMissedShootOnBoard(row, col);
+    }
+
+    public void setHitShip(int row, int col) {
+        this.board.setHitShipOnBoard(row, col);
+    }
+
+    public void checkIfShipHasBeenDestroyed() {
+        boolean isShipDestroyed = false;
+        IShip tempShip = null;
+
+        for(IShip ship: this.ships) {
+            isShipDestroyed = true;
+
+//            System.out.println(ship.getName());
+            for(ISquare square: ship.getPositions()) {
+//                System.out.println(square.isHit());
+
+                if(!square.isHit()){
+                    isShipDestroyed = false;
+                    break;
+                }
+                tempShip = ship;
+            }
+
+//            if(isShipDestroyed) {
+//                System.out.println("Ship is destroyed: " + ship.getName());
+//                for(ISquare square: ship.getPositions()) {
+//                    square.setDestroyed();
+//                }
+//
+//                ships.remove(ship);
+//            }
+
+        }
+
+        if(isShipDestroyed) {
+            System.out.println("Ship is destroyed: " + tempShip.getName());
+            for(ISquare square: tempShip.getPositions()) {
+                square.setDestroyed();
+            }
+
+            ships.remove(tempShip);
+            System.out.println(Collections.unmodifiableList(ships));
+        }
     }
 }
