@@ -21,13 +21,10 @@ public class Game {
         do {
 
             choice = ConsoleEngine.INSTANCE.gameMenu();
-//            System.out.println("Choice: " + choice);
 
             this.differentGameModes(choice);
 
-            System.out.println();
-            System.out.println(" ===> START GAME <=== ");
-            System.out.println();
+            ConsoleEngine.INSTANCE.getDisplay().displayStartGame();
 
             this.runSingleGame();
 
@@ -37,12 +34,7 @@ public class Game {
         } while (!choice.equals("Q"));
 
 
-//        System.out.println("Summary ===============================================");
-//        System.out.println(this.player1);
-//        System.out.println("================2");
-//        System.out.println(this.player2);
 
-        // repeat y/n
     }
 
     private void differentGameModes(String choice) {
@@ -84,7 +76,7 @@ public class Game {
 
         // diplay defender board
         ConsoleEngine.INSTANCE.getDisplay().displayDefender();
-        ConsoleEngine.INSTANCE.displayBoard(defender);
+        ConsoleEngine.INSTANCE.displayBoard(defender, false);
 
         // get coordinates to make shoot
         int [] coordinates = ConsoleEngine.INSTANCE.getInput().getCoordinates();
@@ -110,7 +102,7 @@ public class Game {
         // TODO - replace with function
 //        System.out.println("After giving a shoot");
         ConsoleEngine.INSTANCE.getDisplay().afterGivingAShot();
-        ConsoleEngine.INSTANCE.displayBoard(defender);
+        ConsoleEngine.INSTANCE.displayBoard(defender, false);
 
 //        System.out.println();
 //        System.out.printf(" ===> PRESS ANY BUTTON <===");

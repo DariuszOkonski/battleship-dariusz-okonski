@@ -77,7 +77,7 @@ public class Display {
         System.out.println("Ship is destroyed: " + name);
     }
 
-    public void displayBoard(ISquare[][] board) {
+    public void displayBoard(ISquare[][] board, boolean settingShips) {
         String tempAlphabeth = "ABCDEFGHIJ";
         System.out.println();
 
@@ -91,7 +91,10 @@ public class Display {
             System.out.printf(tempAlphabeth.charAt(i) + " ");
             for (int j = 0; j < board[i].length; j++) {
                 if (board[i][j] != null){
-                    System.out.printf(" " + board[i][j].getCharacter() + " ");
+                    if(settingShips)
+                        System.out.printf(" " + board[i][j].getShipCharacter() + " ");
+                    else
+                        System.out.printf(" " + board[i][j].getCharacter() + " ");
                 }
                 else {
                     System.out.printf(" ~ ");
@@ -106,6 +109,12 @@ public class Display {
     public void currentShipToPlaceInfo(ShipType ship) {
         System.out.println("-------------------------------------------");
         System.out.println("Current ship to place on board: " + ship);
+    }
+
+    public void displayStartGame() {
+        System.out.println();
+        System.out.println(" ===> START GAME <=== ");
+        System.out.println();
     }
 
     public void displayWinner(String name) {

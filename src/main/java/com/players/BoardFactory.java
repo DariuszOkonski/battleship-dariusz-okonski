@@ -40,7 +40,7 @@ public class BoardFactory {
             int col = coordinates[1];
 
             this.addShipToBoardAndList(ship, tempBoard, tempShips, row, col);
-            display.displayBoard(tempBoard.getBattleField());
+            display.displayBoard(tempBoard.getBattleField(), true);
         }
 
         return new Player(tempShips, tempBoard, name);

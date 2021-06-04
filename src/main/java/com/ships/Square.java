@@ -29,6 +29,10 @@ public class Square implements ISquare {
         return squareStatus.status;
     }
 
+    public String getShipCharacter() {
+        return SquareStatus.SHIP.status;
+    }
+
     public ISquare getInstance() {
         return this;
     }

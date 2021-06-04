@@ -29,9 +29,9 @@ public class ConsoleEngine {
            this.display.setInput(this.input);
     }
 
-    public void displayBoard(IPlayer player) {
+    public void displayBoard(IPlayer player, boolean settingShips) {
         display.displayPlayerName(player.getName());
-        this.getDisplay().displayBoard(player.getBoard().getBattleField());
+        this.getDisplay().displayBoard(player.getBoard().getBattleField(), settingShips);
     }
 
     public IPlayer createPlayerBoardsAndShipsList(String name, boolean randomly) {
