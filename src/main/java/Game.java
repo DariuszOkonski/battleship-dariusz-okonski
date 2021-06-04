@@ -78,11 +78,12 @@ public class Game {
     }
 
     private void singleTurn(IPlayer attacker, IPlayer defender) {
-        System.out.println("Attacker: " + attacker.getName());
+//        System.out.println("Attacker: " + attacker.getName());
+        ConsoleEngine.INSTANCE.getDisplay().displayAttacker(attacker);
+
 
         // diplay defender board
-        // TODO - replace with function
-        System.out.println("Defender:");
+        ConsoleEngine.INSTANCE.getDisplay().displayDefender();
         ConsoleEngine.INSTANCE.displayBoard(defender);
 
         // get coordinates to make shoot
@@ -94,7 +95,6 @@ public class Game {
         ISquare currentObjectOnDefenderBoard = defender.getSingleSquareObjectFromPlayer(row, col);
 
 
-        //TODO - working on bug
         // if null or missed then create in this position new squere with status missed
         if(currentObjectOnDefenderBoard == null) {
             defender.setMissedShoot(row, col);
@@ -107,18 +107,15 @@ public class Game {
         }
 
 
-
-        // mark that on shipsList as well
-        //  check if ship is destroyed, if destroyed than remove from shipsList
-        // if double hit same spot than loose shoot
-
         // TODO - replace with function
-        System.out.println("After giving a shoot");
+//        System.out.println("After giving a shoot");
+        ConsoleEngine.INSTANCE.getDisplay().afterGivingAShot();
         ConsoleEngine.INSTANCE.displayBoard(defender);
 
-        System.out.println();
-        System.out.printf(" ===> PRESS ANY BUTTON <===");
-        System.out.println();
+//        System.out.println();
+//        System.out.printf(" ===> PRESS ANY BUTTON <===");
+//        System.out.println();
+        ConsoleEngine.INSTANCE.getDisplay().pressAnyButton();
 
         ConsoleEngine.INSTANCE.getInput().pressAnyButton();
 

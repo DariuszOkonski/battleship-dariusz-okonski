@@ -1,5 +1,6 @@
 package com.players;
 
+import com.console_engine.ConsoleEngine;
 import com.ships.IShip;
 import com.ships.ISquare;
 
@@ -68,13 +69,13 @@ public class Player implements IPlayer {
         }
 
         if(isShipDestroyed) {
-            System.out.println("Ship is destroyed: " + tempShip.getName());
+            ConsoleEngine.INSTANCE.getDisplay().displayShipDestroyed(tempShip.getName());
             for(ISquare square: tempShip.getPositions()) {
                 square.setDestroyed();
             }
 
             ships.remove(tempShip);
-            System.out.println(Collections.unmodifiableList(ships));
+            ConsoleEngine.INSTANCE.getDisplay().displayShipsLeft(ships);
         }
     }
 }

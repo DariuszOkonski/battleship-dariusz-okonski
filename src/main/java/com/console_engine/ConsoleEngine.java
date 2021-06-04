@@ -35,7 +35,6 @@ public class ConsoleEngine {
     }
 
     public IPlayer createPlayerBoardsAndShipsList(String name, boolean randomly) {
-//        System.out.println("Player: " + name);
         if(!randomly) {
             display.displayPlayerName(name);
             return this.display.shipsPlacementProcessManual(this.input, name);

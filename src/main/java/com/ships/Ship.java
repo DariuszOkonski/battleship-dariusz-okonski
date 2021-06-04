@@ -9,8 +9,6 @@ public abstract class Ship implements IShip {
     protected int size;
     protected ShipType shipType;
 
-//    public abstract void setShipOnPosition(Square[][] ocean);
-
     public List<ISquare> getPositions() {
         return positions;
     }

@@ -5,6 +5,7 @@ import com.players.IPlayer;
 import com.ships.*;
 
 import java.util.Dictionary;
+import java.util.List;
 
 public class Display {
     private final Dictionary<Character, Integer> rowsDictionary;
@@ -46,6 +47,34 @@ public class Display {
     public IPlayer shipsPlacementProcessRandom(Input input, String name) {
         var tempBoardFactory = new BoardFactory();
         return tempBoardFactory.randomPlacement(input, this, name);
+    }
+
+    public void displayAttacker(IPlayer attacker) {
+        System.out.println("Attacker: " + attacker.getName());
+    }
+
+    public void displayDefender() {
+        System.out.println("Defender:");
+    }
+
+    public void afterGivingAShot() {
+        System.out.println();
+        System.out.println(" ===> BOARD AFTER GIVING A SHOOT <=== ");
+        System.out.println();
+    }
+
+    public void pressAnyButton() {
+        System.out.println();
+        System.out.printf(" ===> PRESS ANY BUTTON <===");
+        System.out.println();
+    }
+
+    public void displayShipsLeft(List<IShip> ships) {
+        System.out.println("Ships left: " + ships.size());
+    }
+
+    public void displayShipDestroyed(String name) {
+        System.out.println("Ship is destroyed: " + name);
     }
 
     public void displayBoard(ISquare[][] board) {
