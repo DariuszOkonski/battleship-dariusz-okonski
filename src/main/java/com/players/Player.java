@@ -53,26 +53,18 @@ public class Player implements IPlayer {
         for(IShip ship: this.ships) {
             isShipDestroyed = true;
 
-//            System.out.println(ship.getName());
             for(ISquare square: ship.getPositions()) {
-//                System.out.println(square.isHit());
 
                 if(!square.isHit()){
                     isShipDestroyed = false;
+                    tempShip = null;
                     break;
                 }
                 tempShip = ship;
             }
 
-//            if(isShipDestroyed) {
-//                System.out.println("Ship is destroyed: " + ship.getName());
-//                for(ISquare square: ship.getPositions()) {
-//                    square.setDestroyed();
-//                }
-//
-//                ships.remove(ship);
-//            }
-
+            if(isShipDestroyed)
+                break;
         }
 
         if(isShipDestroyed) {

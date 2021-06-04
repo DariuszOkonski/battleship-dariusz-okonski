@@ -31,7 +31,7 @@ public class Game {
 
             this.runSingleGame();
 
-//            checkEndGame();
+            checkEndGame();
 
             choice = "Q";
         } while (!choice.equals("Q"));
@@ -65,7 +65,7 @@ public class Game {
     private void runSingleGame() {
         boolean isPlayer1Hitting = true;
 
-        while (this.player1.isAnyShipsLeft() || this.player2.isAnyShipsLeft()) {
+        while (this.player1.isAnyShipsLeft() && this.player2.isAnyShipsLeft()) {
             if(isPlayer1Hitting) {
                 singleTurn(this.player1, this.player2);
 
@@ -78,8 +78,6 @@ public class Game {
     }
 
     private void singleTurn(IPlayer attacker, IPlayer defender) {
-        // attacker turn
-        // TODO - replace with function
         System.out.println("Attacker: " + attacker.getName());
 
         // diplay defender board
@@ -95,6 +93,8 @@ public class Game {
         // check coordinates on defender board
         ISquare currentObjectOnDefenderBoard = defender.getSingleSquareObjectFromPlayer(row, col);
 
+
+        //TODO - working on bug
         // if null or missed then create in this position new squere with status missed
         if(currentObjectOnDefenderBoard == null) {
             defender.setMissedShoot(row, col);
@@ -102,10 +102,10 @@ public class Game {
 
             // if hit ship than mark that on board
             defender.setHitShip(row, col);
-
             // iterate over Player.ships list to check if any ship has been destroyed completely
             defender.checkIfShipHasBeenDestroyed();
         }
+
 
 
         // mark that on shipsList as well
